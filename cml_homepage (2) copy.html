@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Make Learn - Hands-On Learning Through Making</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* overflow-x: hidden; /* Prevent horizontal scroll */
+            padding-top: 80px; /* Make room for  navbar */
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(134, 132, 138, 0.839);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000; /* Ensure navbar is above other content */
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #c25b00; /* Darker orange */
+            background: rgba(247, 147, 30, 0.08); /* Subtle background */
+            text-shadow: none; /* Remove any glow effect */
+        }
+
+        .nav-link.active {
+            color: #c25b00; /* Darker orange */
+            font-weight: bold;
+            background: rgba(247, 147, 30, 0.08); /* Optional: subtle background for active */
+            text-shadow: none; /* Remove any glow effect */
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                padding: 1rem 0;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-link {
+                padding: 1rem 2rem;
+                border-radius: 0;
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /* Header */
+        header {
+            background: #f7f7f7;
+            color: white;
+            padding: 1.5rem 0; /* Reduced from 2rem */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><rect x="60" y="10" width="3" height="3" fill="rgba(255,255,255,0.1)"/><polygon points="80,30 85,35 80,40 75,35" fill="rgba(255,255,255,0.1)"/></svg>') repeat;  )
+            /* animation: float 20s infinite linear; /* Floating background animation */
+
+           
+        }
+        /*
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+            */
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 1.5rem; /* Reduced from 3rem */
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+           /* transition: transform 0.3s ease; */
+        }
+
+        .logo-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo-icon.scissors {
+            background: #ff6b35;
+        }
+
+        .logo-icon.gear {
+            background: #f7931e;
+        }
+
+        .logo-icon.bulb {
+            background: #1e88e5;
+        }
+
+        .logo-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #000;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 3rem 0; /* Reduced from 5rem */
+            background: white;
+        }
+
+        .services-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Ensure images cover the container area */
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* set the formatting for each service columns */
+        /* Set the  color for each service title */
+
+        .service-column:nth-child(1) .service-title {
+            color: #f7931e; 
+        }
+
+        .service-column:nth-child(2) .service-title {
+            color: #f7931e;
+        }
+
+        .service-column:nth-child(3) .service-title {
+            color: #f7931e;
+        }
+
+        .service-description {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-link {
+            color: #f7931e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: #ff6b35;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,107,53,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2rem;
+            }
+
+            .services-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animations 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        */
+    </style>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+
+                <img src="cropped-CML_logo-small.webp"
+                alt="Create Make Learn" class="nav-logo-img">
+
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="https://createmakelearn.blogspot.com/" class="nav-link">Blog</a></li>
+
+
+                <li><a href="#residencies" class="nav-link">Residencies</a></li>
+                <li><a href="#workshops" class="nav-link">Workshops & PD</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+
+            <div class="logo-section">
+                <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
+                <div class="logo">
+                    <!-- (You can remove or keep the SVG icons here if you wish) -->
+                </div>
+                <!--<h1 class="logo-text">CREATE • MAKE • LEARN</h1> -->
+
+                <p class="tagline">Inspiring hands-on, minds-on learning through creating and making. Join our community of educators, makers, and artists passionate about transformative learning experiences.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="services-container">
+            <div class="service-column">
+                <img src="summer_Institute.webp" alt="Summer Institute Workshop" class="service-image">
+                <h3 class="service-title">Workshops & PD</h3>
+                <p class="service-description">Spend a week with colleagues of all levels from newbies to advanced makers to create, connect, learn new skills. Join the Create Make Learn community who return each year and leave feeling inspired and filled with new skills, new lesson ideas, and new friends.</p>
+                <a href="#" class="service-link">Learn More</a>
+            </div>
+
+            <div class="service-column">
+                <img src="residencies.webp" alt="Mobile Maker Lab" class="service-image">
+                <h3 class="service-title">Residencies</h3>
+                <p class="service-description">Invite Lucie and her maker tools and supplies to your school to work with teachers and students. We'll create a custom experience that that engages your students and staff in learning through creating and making. Here are some past STEAM and MAKER residencies.</p>
+                <a href="#" class="service-link">Check out past residencies</a>
+            </div>
+
+            <div class="service-column">
+                <img src="GetInspired.webp" alt="Collaborative Making" class="service-image">
+                <h3 class="service-title">Get Inspired</h3>
+                <p class="service-description">Get inspired by stories and examples of learning through creating and making from our CML community. Each year we curate inspiration from our community of educators, makers, and artists who are passionate about hands-on minds-on learning through creating and making and share them on our blog.</p>
+                <a href="#" class="service-link">Get Inspired</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Join the Create Make Learn Community</h2>
+            <p>Connect with Lucie and the Create Make Learn community to bring hands-on, minds-on learning to your educational environment.</p>
+            <p> We send out occasional notes with information about events, grants, inspiration from the community, and other helpful resources.</p>
+            <button class="cta-btn">Let's Connect </button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Create Make Learn. Empowering learning through making and creating.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Active navigation link handling
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Service links
+        document.querySelectorAll('.service-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // CTA button
+        document.querySelector('.cta-btn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.service-column').forEach(column => {
+            column.style.opacity = '0';
+            column.style.transform = 'translateY(30px)';
+            column.style.transition = 'all 0.6s ease';
+            observer.observe(column);
+        });
+    </script>
+</body>
+</html>

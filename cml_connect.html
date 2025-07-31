@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Create Make Learn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="cropped-CML_logo-small.webp" alt="Create Make Learn" class="nav-logo-img">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="cml_homepage (2).html" class="nav-link">Home</a></li>
+                <li><a href="https://createmakelearn.blogspot.com/" class="nav-link">Blog</a></li>
+                <li><a href="cml_residencies.html" class="nav-link">Residencies</a></li>
+                <li><a href="#workshops" class="nav-link">Workshops & PD</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="cml_connect.html" class="nav-link active">Contact Us</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="logo-section">
+                <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
+                <h1 class="logo-text">Contact Us</h1>
+                <p class="tagline">We'd love to connect! Reach out with your questions, ideas, or to schedule a residency or workshop.</p>
+            </div>
+        </div>
+    </header>
+    <section class="services">
+        <div class="container" style="max-width:500px; margin:0 auto;">
+            <h2>Get in Touch</h2>
+            <form>
+                <div style="margin-bottom:1rem;">
+                    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:0.75rem;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:0.75rem;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:0.75rem;"></textarea>
+                </div>
+                <button type="submit" class="cta-btn">Send Message</button>
+            </form>
+            <p style="margin-top:2rem;opacity:0.8;">
+                Or email us directly at <a href="mailto:info@createmakelearn.org" style="color:#f7931e;">info@createmakelearn.org</a>
+            </p>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Create Make Learn. Empowering learning through making and creating.</p>
+        </div>
+    </footer>
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        // Highlight active link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === 'cml_connect.html') {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

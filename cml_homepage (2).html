@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Make Learn - Hands-On Learning Through Making</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- In your HTML where you want the navbar -->
+    <div id="navbar"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
+    </script>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+
+            <div class="logo-section">
+                <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
+                <div class="logo">
+                    <!-- (You can remove or keep the SVG icons here if you wish) -->
+                </div>
+                <!--<h1 class="logo-text">CREATE • MAKE • LEARN</h1> -->
+
+                <p class="tagline">Inspiring hands-on, minds-on learning through creating and making. Join our community of educators, makers, and artists passionate about transformative learning experiences.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="services-container">
+            <div class="service-column">
+                <img src="summer_Institute.webp" alt="Summer Institute Workshop" class="service-image">
+                <h3 class="service-title">Workshops & PD</h3>
+                <p class="service-description">Spend a week with colleagues of all levels from newbies to advanced makers to create, connect, learn new skills. Join the Create Make Learn community who return each year and leave feeling inspired and filled with new skills, new lesson ideas, and new friends.</p>
+                <a href="#" class="service-link">Learn More</a>
+            </div>
+
+            <div class="service-column">
+                <img src="residencies.webp" alt="Mobile Maker Lab" class="service-image">
+                <h3 class="service-title">Residencies</h3>
+                <p class="service-description">Invite Lucie and her maker tools and supplies to your school to work with teachers and students. We'll create a custom experience that that engages your students and staff in learning through creating and making. Here are some past STEAM and MAKER residencies.</p>
+                <a href="#" class="service-link">Check out past residencies</a>
+            </div>
+
+            <div class="service-column">
+                <img src="GetInspired.webp" alt="Collaborative Making" class="service-image">
+                <h3 class="service-title">Get Inspired</h3>
+                <p class="service-description">Get inspired by stories and examples of learning through creating and making from our CML community. Each year we curate inspiration from our community of educators, makers, and artists who are passionate about hands-on minds-on learning through creating and making and share them on our blog.</p>
+                <a href="#" class="service-link">Get Inspired</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Join the Create Make Learn Community</h2>
+            <p>Connect with Lucie and the Create Make Learn community to bring hands-on, minds-on learning to your educational environment.</p>
+            <p> We send out occasional notes with information about events, grants, inspiration from the community, and other helpful resources.</p>
+            <button class="cta-btn">Let's Connect </button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Create Make Learn. Empowering learning through making and creating.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Active navigation link handling
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Service links
+        document.querySelectorAll('.service-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // CTA button
+        document.querySelector('.cta-btn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.service-column').forEach(column => {
+            column.style.opacity = '0';
+            column.style.transform = 'translateY(30px)';
+            column.style.transition = 'all 0.6s ease';
+            observer.observe(column);
+        });
+    </script>
+</body>
+</html>
