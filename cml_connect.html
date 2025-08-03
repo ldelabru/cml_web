@@ -3,41 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Create Make Learn</title>
+    <title>Professional Development | Create Make Learn</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+
+
+
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="cropped-CML_logo-small.webp" alt="Create Make Learn" class="nav-logo-img">
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="cml_homepage (2).html" class="nav-link">Home</a></li>
-                <li><a href="https://createmakelearn.blogspot.com/" class="nav-link">Blog</a></li>
-                <li><a href="cml_residencies.html" class="nav-link">Residencies</a></li>
-                <li><a href="#workshops" class="nav-link">Workshops & PD</a></li>
-                <li><a href="#community" class="nav-link">Community</a></li>
-                <li><a href="cml_connect.html" class="nav-link active">Contact Us</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#resources" class="nav-link">Resources</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle">☰</button>
-        </div>
-    </nav>
+
+  <!-- This is the code that FETCHES the Navbar from navbar.html
+     -->
+
+    <div id="navbar"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
+    </script>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- The following section includes style for the FOLLOW BLOG and was copied here from the FOLLOW IT website by Lucie -->
+    <style>
+
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            margin-top: 30px !important;
+            padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+            max-width: none !important;
+            border-radius: 6px !important;
+            box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+            box-sizing: border-box !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+            width: 100% !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+            margin-top: 20px !important;
+            width: 100% !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+            width: 100% !important;
+            height: 40px !important;
+            border-radius: 6px !important;
+            border: 2px solid #e9e8e8 !important;
+            background-color: #fff;
+            outline: none !important;
+            color: #000000 !important;
+            font-family: "Montserrat" !important;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: center;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+            color: #000000 !important;
+            opacity: 1 !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+            color: #000000 !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+            color: #000000 !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+            margin-top: 10px !important;
+            width: 100% !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+            width: auto;
+            min-width: 160px; /* Optional: ensures a nice minimum width */
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            height: auto;
+            line-height: normal;
+            display: inline-block;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+            cursor: pointer !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+            color: #231f20 !important;
+            font-family: "Montserrat" !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 25px !important;
+            text-align: center !important;
+            text-decoration: none !important;
+            display: flex !important;
+            width: 100% !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-top: 10px !important;
+        }
+        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+            margin-left: 10px !important;
+            height: 1.13em !important;
+            max-height: 1.13em !important;
+        }
+
+        .contact-flex {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .contact-flex > * {
+            flex: 1 1 300px;
+            max-width: 400px;
+        }
+
+        .logo-section ul,
+        .logo-section ul li {
+            color: #000;
+        }
+
+        .logo-section p {
+            color: #000;
+        }
+
+        .logo-section ul {
+            list-style: disc;
+            margin-left: 2em;
+            padding-left: 0;
+        }
+
+        .followit--follow-form-container {
+            background: #f3f3f3;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            margin: 1.5rem 0;
+        }
+ 
+
+
+
+
+
     <header>
         <div class="header-bg"></div>
         <div class="container">
             <div class="logo-section">
                 <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
                 <h1 class="logo-text">Contact Us</h1>
-                <p class="tagline">We'd love to connect! Reach out with your questions, ideas, or to schedule a residency or workshop.</p>
+                <p class="tagline">We'd love to connect! </p>
+                <ul>
+                    <li>Fill out the form below Reach out with your questions, ideas, or to schedule a residency or workshop.</li>
+                    <li>Email Lucie directly at ldelabruere@gmail.com</li>
+                    <li>Subscribe to the blog to get email notice of new updates</li>
+                </ul>
+                <p>I look forward to hearing from you. </p>
             </div>
         </div>
     </header>
+
+    
     <section class="services">
-        <div class="container" style="max-width:500px; margin:0 auto;">
+        <div class="container">
             <h2>Get in Touch</h2>
+            <p>Whether you have questions about a blog post, want to collaborate on a residency, or are interested in a workshop or customized PD, don't hesitate to reach out.</p>
             <form>
                 <div style="margin-bottom:1rem;">
                     <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:0.75rem;">
@@ -49,10 +206,34 @@
                     <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:0.75rem;"></textarea>
                 </div>
                 <button type="submit" class="cta-btn">Send Message</button>
+                <p style="margin-top:2rem;opacity:0.8;">
+                   
+                   <h2> Or email Lucie directly at <a href="mailto:ldelabruere@gmail.com" style="color:#f7931e;">info@createmakelearn.org</a> </h2>
+
+                   <h2> Get New Blog Post by Email  
+                    
+                   </h2>
+
+
+                </p>
             </form>
-            <p style="margin-top:2rem;opacity:0.8;">
-                Or email us directly at <a href="mailto:info@createmakelearn.org" style="color:#f7931e;">info@createmakelearn.org</a>
-            </p>
+            <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
+                <form data-v-8541cdc9="" action="https://api.follow.it/subscription-form/T0VPMlJ5cjRXaWFUYitZVFFHTGJGeHdGak9iUTdBaGJRNHFaa21CeGZjcGcwWXEzRDN2QzA5UC9nZWZ0aXZpSEFMbFlHb1BGSmp5bU41OGhCd3NGSUVNaTR5YmFSMC81NHhYM1krb3lNQS9rSlE1Ly9HV2NCQVZnKy92SEJ4Ukp8aEFjZzl0b1d5eFlzT3JmUzNoUXVFNFp2andNRU8yNEczTGJpT20zUDVwOD0=/8" method="post">
+                    <div data-v-8541cdc9="" class="form-preview" style="background-color: rgb(255, 255, 255); border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204); position: relative;">
+                        <div data-v-8541cdc9="" class="preview-heading">
+                            <h2 data-v-8541cdc9="" style="font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center; text-transform: none !important;">
+                                Sign up for email delivery of our blog using Follow.It subscription service</h2>
+                        </div>
+                        <div data-v-8541cdc9="" class="preview-input-field">
+                            <input data-v-8541cdc9="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" style="font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255); text-transform: none !important;">
+                        </div>
+                        <div data-v-8541cdc9="" class="preview-submit-button">
+                            <button data-v-8541cdc9="" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+                <a href="https://follow.it" class="powered-by-line">Powered by <img src="https://follow.it/images/colored-logo.svg" alt="follow.it" height="17px"/></a>
+            </div>
         </div>
     </section>
     <footer>
@@ -74,5 +255,25 @@
             }
         });
     </script>
+
+    <!-- This next section was copied from the Follow It website -->
+    <!--
+    <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
+        <form data-v-8541cdc9="" action="https://api.follow.it/subscription-form/T0VPMlJ5cjRXaWFUYitZVFFHTGJGeHdGak9iUTdBaGJRNHFaa21CeGZjcGcwWXEzRDN2QzA5UC9nZWZ0aXZpSEFMbFlHb1BGSmp5bU41OGhCd3NGSUVNaTR5YmFSMC81NHhYM1krb3lNQS9rSlE1Ly9HV2NCQVZnKy92SEJ4Ukp8aEFjZzl0b1d5eFlzT3JmUzNoUXVFNFp2andNRU8yNEczTGJpT20zUDVwOD0=/8" method="post">
+            <div data-v-8541cdc9="" class="form-preview" style="background-color: rgb(255, 255, 255); border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204); position: relative;">
+                <div data-v-8541cdc9="" class="preview-heading">
+                    <h5 data-v-8541cdc9="" style="font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center; text-transform: none !important;">Get new blog posts by email:</h5>
+                </div>
+                <div data-v-8541cdc9="" class="preview-input-field">
+                    <input data-v-8541cdc9="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" style="font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255); text-transform: none !important;">
+                </div>
+                <div data-v-8541cdc9="" class="preview-submit-button">
+                    <button data-v-8541cdc9="" type="submit" style="font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0); text-transform: none !important;">Subscribe</button>
+                </div>
+            </div>
+        </form>
+        <a href="https://follow.it" class="powered-by-line">Powered by <img src="https://follow.it/images/colored-logo.svg" alt="follow.it" height="17px"/></a>
+    </div>
+    -->
 </body>
 </html>

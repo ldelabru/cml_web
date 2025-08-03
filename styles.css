@@ -221,6 +221,23 @@ header {
     color: #000;
 }
 
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #000;
+    
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #000;
+}
+
 /* Services Section */
 .services {
     padding: 3rem 0; /* Reduced from 5rem */
