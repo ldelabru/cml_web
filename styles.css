@@ -227,7 +227,7 @@ header {
     background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
     color: white;
     text-align: center;
-    padding: 4rem 0; /* Reduced from 5rem */
+    padding: 2rem 0; /* Reduced from 5rem */
 }
 .hero-section .container {
     position: relative;
@@ -282,9 +282,84 @@ text-align: center;
     text-align: center;
 }
 
+
+    /* Institute Section */
+        .institute-section {
+            background: #FFFFFF;
+            padding: 1rem 0;
+        }
+
+        .institute-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .institute-header h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .institute-header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .institute-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 280px;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid;
+        }
+
+        .feature-card:nth-child(1) {
+            border-top-color: #FF6B35;
+        }
+
+        .feature-card:nth-child(2) {
+            border-top-color: #F7931E;
+        }
+
+        .feature-card:nth-child(3) {
+            border-top-color: #1E88E5;
+        }
+
+        .feature-card:nth-child(4) {
+            border-top-color: #FF6B35;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #333333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+
 /* Services Section */
 .services {
-    padding: 3rem 0; /* Reduced from 5rem */
+    padding: rem 0; /* Reduced from 5rem */
     background: white;
 }
 
@@ -388,6 +463,61 @@ text-align: center;
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(255,107,53,0.4);
 }
+.institute-section,
+.contact-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+ /* Contact Section */
+        .contact-section {
+            background: #FFFFFF;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #1E88E5;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: #FFFFFF;
+            padding: 1rem 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
 
 /* Footer */
 footer {
