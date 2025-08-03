@@ -222,11 +222,54 @@ header {
 }
 
 
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+    color: white;
+    text-align: center;
+    padding: 4rem 0; /* Reduced from 5rem */
+}
+.hero-section .container {
+    position: relative;
+}
+
+.logo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.main-logo-img {
+    flex: 1 1 50%;
+    max-width: 50vw;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    object-fit: cover;
+}
+
+.logo-content {
+    flex: 1 1 50%;
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .logo-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-logo-img, .logo-content {
+        max-width: 100%;
+    }
+}
+
 .hero-title {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 3px;
     color: #000;
+text-align: center;
     
 }
 
@@ -236,6 +279,7 @@ header {
     max-width: 600px;
     margin: 0 auto;
     color: #000;
+    text-align: center;
 }
 
 /* Services Section */
