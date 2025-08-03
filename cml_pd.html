@@ -7,30 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="cropped-CML_logo-small.webp" alt="Create Make Learn" class="nav-logo-img">
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="cml_homepage (2).html" class="nav-link">Home</a></li>
-                <li><a href="https://createmakelearn.blogspot.com/" class="nav-link">Blog</a></li>
-                <li><a href="cml_residencies.html" class="nav-link">Residencies</a></li>
-                <li><a href="cml_pd.html" class="nav-link active">Workshops & PD</a></li>
-                <li><a href="#community" class="nav-link">Community</a></li>
-                <li><a href="cml_connect.html" class="nav-link">Contact Us</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#resources" class="nav-link">Resources</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle">☰</button>
-        </div>
-    </nav>
-    <header>
+
+  <!-- This is the code that FETCHES the Navbar from navbar.html
+     -->
+
+    <div id="navbar"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
+    </script>
+
+
+    
+
+<header>
         <div class="header-bg"></div>
         <div class="container">
             <div class="logo-section">
-                <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
-                <h1 class="logo-text">Professional Development</h1>
+                <img src="hero_PD.jpg" alt="Create Make Learn Logo" class="main-logo-img">
+                <h1 class="hero-text">Professional Development</h1>
                 <p class="tagline">Empowering educators through hands-on, creative summer institutes and workshops.</p>
             </div>
         </div>
