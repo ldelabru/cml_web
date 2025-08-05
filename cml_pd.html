@@ -82,8 +82,8 @@
                     <h2 style="color: #1E88E5; margin-bottom: 1rem;">Get Started Today</h2>
                     <p style="margin-bottom: 0;">Reach out to discuss your needs and which PD format best supports your educational goals. Sign up for our mailing list to get notified of future PD events. </p>
                 </div>
-                
-                <button class="contact-btn">Contact Lucie</button>
+               <!-- when I click on the button it will take me to the Let's Connect page. -->
+                <button class="contact-btn" onclick="window.location.href='cml_connect.html'">Contact Lucie</button>
             </div>
         </div>
     </section>
@@ -92,16 +92,19 @@
             <p>&copy; 2025 Create Make Learn. Empowering learning through making and creating.</p>
         </div>
     </footer>
+
+
     <script>
-        // Mobile navigation toggle
+        // Mobile navigation toggle will change the way it works if I'm lookint at it on a mobile device 
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
         });
-        // Highlight active link
+        
+        // Highlight active link. This will take all the items with class .nav-link and add the 'active' formatting if the link associated with it is 'this page' 
         document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === 'cml_professional_development.html') {
+            if (link.getAttribute('href') === 'cml_pd.html') {
                 link.classList.add('active');
             }
         });
