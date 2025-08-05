@@ -20,6 +20,98 @@
     }
 
 
+    /* Styles used in About Us Page */
+
+
+        /* Gradient Hero/Header Section */
+        .gradient_hero {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .gradient_hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .gradient_hero .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* About Us History Section Styles */
+        .history-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .history-section h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 2rem;
+        }
+
+        .history-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        
+
+        /* Layout */
+
+.container {
+     width: 90%; /*see how this looks */
+     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /*also try 2m 0;  or 0 20px */
+    position: relative;
+    z-index: 2;
+}
+
+.centered-img-medium {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 400px;
+  height: auto;
+}
+
+.centered-img-wide {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 100%;
+  height: auto;
+}
+
+.circle-img-small
+{
+display:block;
+width: 150px;
+ height: 150px;
+  border-radius: 50%; 
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+
+    /*End Styles */
+
 
  body {
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -86,13 +178,11 @@
     .steps li:nth-child(3) circle { fill: var(--color-learn); }
     .steps li:nth-child(4) circle { fill: var(--color-support); }
 
-    /* Layout */
-    .container {
-      width: 90%;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2em 0;
-    }
+   
+
+    
+
+    
     header, section, footer {
       margin-bottom: 3em;
     }
@@ -285,13 +375,20 @@ header {
 }
 */
 
+ /* Layout */
+
 .container {
-    max-width: 1200px;
+     width: 90%; /*see how this looks */
+     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2rem; /*also try 2m 0;  or 0 20px */
     position: relative;
     z-index: 2;
 }
+
+ 
+ 
+
 
 .logo-section {
     text-align: center;

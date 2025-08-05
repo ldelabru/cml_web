@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Create Make Learn</title>
+
+      <link rel="stylesheet" href="styles.css">
+
+    <style>
+     
+
+
+       
+        /* Team Section */
+        .team-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-header h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member img {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+} /* Center the  team image and add space below it */
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #333333;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .title {
+            color: #FF6B35;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: #666;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .gradient_hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .gradient_hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+      <!-- This is the code that FETCHES the Navbar from navbar.html. This makes it easier to update the navbar across multiple pages. -->
+     -->
+
+    <div id="navbar"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
+    </script>
+
+
+
+   
+
+    <!-- Gradient Hero Section Orange  to Blue Gradient -->
+    <section class="gradient_hero">
+        <div class="container">
+            <h1>Our Story</h1>
+            <!--<p class="tagline">Meet the Team</p> -->
+        </div>
+    </section>
+   
+   
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="history-content">
+               <!--<h2>Our Story</h2>-->
+
+               
+                <p>Create Make Learn started as a unique week-long summer institute for Vermont educators designed by Lucie deLaBruere in 2012. </p>
+
+                 <img src="summer_Institute.webp" alt="summer institure photo" class="centered-img-medium">
+
+                </p>In 2013, Lucie and her husband, Craig Lyndes, started traveling around the country in their 1983 Bluebird bus & mobile makerspace in search of inspiration from creatives around the country to bring back to our Create Make Learn community.</p>
+                 
+   <img src="sunset_bus.jpg" alt="Bluebird bus 1983" class="centered-img-medium">
+
+                <p>Over the years, Create Make Learn has evolved into comprehensive professional development opportunities, school residencies, and a supportive community that continues to inspire educators to design amazing learning opportunities for their students.</p>
+
+                 <img src="residencies.webp" alt=" residency with students" class="centered-img-medium">
+
+                <p>Join us and you'll soon be connected to a wealth of community of creative colleagues willing to share resources that inspire us as we design amazing hands-on learning opportunities for our students.</p>
+
+                 <img src="CML17VT.jpg" alt="CML community" class="centered-img-wide">
+
+                 
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-header">
+                <h3>Meet Some of Our Create Make Learn Team</h3>
+                <p>Create Make Learn continues to bring together a community of talented creative educators, makers, and artists to mentor us, inspire us, and help us grow. </p>
+
+                
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                  
+
+                     
+<img src="Lucie-FAIL.webp" alt="Lucie photo" class="circle-img-small">
+
+
+
+
+
+                    <h3>Lucie deLaBruere</h3>
+                    <div class="title">Founder & Lead Educator</div>
+                    <p>Lucie is an ambassador for creativity and innovation in our schools. Her passion for learning through creating and making led to the design of the first Create Make Learn Summer Institute in 2012. She has built a community of creative educators who are equally committed to providing opportunities for more hands-on, minds-on learning for our students.</p>
+                    <p>Lucie (a 30+ years veteran teacher) is committed to advancing digital equity across several domains. Her TechSavvy Girls project has helped increase the confidence of young women and girls for over 20 years. She is committed to bringing opportunities for creating and making to rural communities. Lucie is a Google Certified Innovator, a Raspberry Pi Certified Educator and WeVideo ambassador.</p>
+                </div>
+
+                <div class="team-member">
+                    
+                    <img src="Craig.webp" alt="Craig photo" class="circle-img-small">
+
+                    <h3>Craig Lyndes</h3>
+                    <div class="title">Technology Guru</div>
+                    <p>Craig has been finding ways to increase student and educator access to technology since the days when he launched the first student-run BBS in Vermont. He continues to empower educators as part of the Create Make Learn Team. Whether he is helping them build their own 3D printer or teaching them to solder, he is always in high demand due to his patient and kind approach to helping educators grow in ways that will empower students.</p>
+                </div>
+
+                                <div class="team-member">
+                   
+
+                      <img src="Tina Residency.jpg" alt="Tina photo" class="circle-img-small">
+                    <h3>Christina (Tina) Smith</h3>
+                    <div class="title">Elementary STEAM specialist</div>
+                    <p>Christina is an award winning science educator and maker educator with over 30 years of experience in Vermont schools. She helps our youngest learners experience science, computer science, robotics, and STEAM based learning.</p>
+
+                    
+                </div>
+
+                <div class="team-member">
+                 
+                      <img src="CMLCatie.webp" alt="Caty" class="circle-img-small">
+                    <h3>Caty Wolfe</h3>
+                    <div class="title">Art & Technology Integration</div>
+                    <p>Caty started her education adventure 15+ years ago as a certified art teacher without a job. She became a special ed teacher at a technical center where she discovered she had technical aptitude and a fascination with fixing hardware and helping teachers integrate. She took on the duties of system administrator and then became the computer applications instructor.</p>
+                    <p>There is an interesting parallel between creative problem solving in the art world and technical troubleshooting. Thus began the adventure that has led her to be a PreTech Instructor at a Career and Technical Center with a focus on art and technology. She has integrated Design Thinking and Making into her curriculum and her students are always challenging her to push the boundaries. Her newest adventure has been to start an online store with Maker supplies and project ideas for teachers and kids!</p>
+                </div>
+
+                <div class="team-member">
+                  
+
+                      <img src="CMLShannon.webp" alt="Shannon photo" class="circle-img-small">
+                    <h3>Shannon Walters</h3>
+                    <div class="title">Library & Technology Integration</div>
+                    <p>Shannon Walters is passionate about using technology and the arts to create, collaborate, communicate and connect in new ways. She brings with her years of experience integrating technology as a Teacher Librarian and Technology Integration specialist at The Integrated Arts Academy in Burlington.</p>
+                    <p>Shannon is Co-Director for Governor's Institutes of Vermont's IT & Digital Media Institute @ Champlain College, a 10 day residential institute focused on game design, microcontrollers, cybersecurity, digital media creation and web design for high school students. Recipient of the Vermont Outstanding Teacher Award, she is Technology Concerns Chair for the Vermont School Library Association.</p>
+                </div>
+
+                <div class="team-member">
+                  
+                      <img src="CML-Darcie.webp" alt="Darcie" class="circle-img-small">
+                    <h3>Darcie Rankin</h3>
+                    <div class="title">Elementary STEAM Specialist</div>
+                    <p>Darcie started her professional career as an electrical engineer, but found her true passion was for working with students when she had a chance to go into schools to speak about science and engineering. She received her elementary teaching endorsement and Masters degree in Curriculum from St. Michael's College.</p>
+                    <p>She has been learning alongside elementary students for the last nine years and loves working with younger learners to engage them with hands on activities. She strives to infuse her educational practice with student voice and choice as she encourages students to take risks, be creative, collaborate, play and have fun! Darcie is also a code.org elementary level facilitator for Vermont and enjoys connecting coding and robotics with the elementary learning experience.</p>
+                </div>
+
+                <div class="team-member">
+                    
+                      <img src="PlayfulPrototype.JPG" alt="some CML team members at makerfaire" class="circle-img-small">
+                    <h3>Summer Institute Team</h3>
+                    <div class="title">Creative Educators & Makers</div>
+                    <p>Each summer the Create Make Learn Summer Institute brings together an amazing team of passionate, creative educators, makers, and artists to mentor us, inspire us, and help us grow our skills in creating, making, facilitating, and designing powerful learning opportunities through creating and making.</p>
+                    <p>Stay tuned for announcement of this year's creative team of inspiring educators and makers!</p>
+
+                
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
