@@ -663,16 +663,17 @@
 
      <!-- Contact FollowIt (Hidden by default) -->
             <div class="contact-form" id="contactFollow">
-                <h3 style="color: #333333; margin-bottom: 1.5rem; text-align: center;">Subscribe to our Blog </h3>
-               
+                <h3 style="color: #333333; margin-bottom: 1.5rem; text-align: center;">Subscribe to the Blog </h3>
 
 
-    <div id="bottom_option"></div>
+    <div id="navbar"></div>
     <script>
-      fetch('follow.html')
+      fetch('navbar.html')
         .then(response => response.text())
-        .then(data => { document.getElementById('bottom_option').innerHTML = data; });
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
     </script>
+
+               
 
 </div>  <!--  End Div for Contact FollowIt (Hidden by default) -->
 
