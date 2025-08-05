@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Connect - Create Make Learn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B35;
+        }
+
+        /* Hero/Header Section */
+        .hero {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* History Section */
+        .history-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .history-section h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 2rem;
+        }
+
+        .history-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Connect Options Section */
+        .connect-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .connect-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .connect-header h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .connect-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .connect-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid;
+        }
+
+        .connect-card:nth-child(1) {
+            border-top-color: #FF6B35;
+        }
+
+        .connect-card:nth-child(2) {
+            border-top-color: #F7931E;
+        }
+
+        .connect-card:nth-child(3) {
+            border-top-color: #1E88E5;
+        }
+
+         .connect-card:nth-child(4) {
+            border-top-color: #1E88E5;
+        }
+
+        .connect-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .connect-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .connect-card h3 {
+            font-size: 1.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .connect-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .connect-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .connect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .connect-btn.blue {
+            background: linear-gradient(135deg, #1E88E5 0%, #64B5F6 100%);
+        }
+
+        .connect-btn.blue:hover {
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.3);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .contact-form.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-header h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #333333;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .title {
+            color: #FF6B35;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: #666;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .connect-options {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation 
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">CREATE • MAKE • LEARN</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="professional-development.html">Professional Development</a></li>
+                    <li><a href="#team">Meet the Team</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    -->
+
+    <!-- Hero Section  -->
+    <section class="hero">
+        <div class="container">
+            <h1>Let's Connect</h1>
+            <p class="tagline">Choose the best way to start your Create Make Learn journey</p>
+        </div>
+    </section>
+   
+
+    <!-- Connect Options Section -->
+    <section class="connect-section" id="connect">
+        <div class="container">
+            <!-- 
+            <div class="connect-header">
+                <h2>Ready to Connect?</h2>
+                <p>Choose the best way to start your Create Make Learn journey</p>
+            </div>
+            -->
+
+            <div class="connect-options">
+                <div class="connect-card">
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <rect x="15" y="25" width="70" height="50" fill="#FF6B35" opacity="0.2" rx="5"/>
+                            <path d="M15 35 L50 55 L85 35" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                            <rect x="15" y="25" width="70" height="50" fill="none" stroke="#FF6B35" stroke-width="2" rx="5"/>
+                        </svg>
+                    </div>
+                    <h3>Email Directly</h3>
+                    <p>Have a specific question or want to discuss professional development opportunities? Send Lucie a direct email and she'll get back to you personally.</p>
+                    <a href="mailto:lucie@createmakelearn.org" class="connect-btn">Send Email</a>
+                </div>
+
+                <div class="connect-card">
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" fill="#F7931E" opacity="0.2" rx="8"/>
+                            <rect x="30" y="35" width="40" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="45" width="30" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="55" width="35" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="65" width="25" height="3" fill="#F7931E" rx="1"/>
+                            <circle cx="75" cy="25" r="3" fill="#F7931E"/>
+                        </svg>
+                    </div>
+                    <h3>Send a Message</h3>
+                    <p>Share your thoughts, ideas, or questions with our team. Tell us about your educational context and how we might support your goals.</p>
+                    <button class="connect-btn" onclick="toggleForm()">Send Message</button>
+                </div>
+
+                <div class="connect-card">
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <circle cx="35" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="65" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="50" cy="65" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="35" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="65" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="50" cy="65" r="6" fill="#1E88E5"/>
+                            <path d="M41 41 L59 41" stroke="#1E88E5" stroke-width="2"/>
+                            <path d="M44 47 L56 59" stroke="#1E88E5" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Join the Mailing List</h3>
+                    <p>Stay connected with occasional updates about events, grants, inspiration from our community, and other helpful resources for educators.</p>
+                    <a href="#" class="connect-btn blue">Join Mailing List</a>
+                </div>
+            
+
+            <div class="connect-card">
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <circle cx="35" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="65" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="50" cy="65" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="35" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="65" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="50" cy="65" r="6" fill="#1E88E5"/>
+                            <path d="M41 41 L59 41" stroke="#1E88E5" stroke-width="2"/>
+                            <path d="M44 47 L56 59" stroke="#1E88E5" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Subscribe to Blog</h3>
+                    <p>You will receive a vertification via "FOLLOW-IT". Once you confirm with Follow-It, our new blog post will be sent to your email when they drop. </p>
+                    <a href="#" class="connect-btn blue">Subscribe to blog</a>
+
+                      <button class="connect-btn" onclick="toggleFollowIt()">Send Message</button>
+
+<!--This is the next stuff-->
+<div style="text-align: center;">
+                        <button type="submit" class="connect-btn">Subscribe to Blog</button>
+                        <button type="button" class="connect-btn" onclick="toggleFollowIt()" 
+                        style="background: #6c757d; margin-left: 1rem;">Cancel</button>
+                    </div>
+<!--This is  end of the next stuff-->
+
+
+
+                </div>
+            </div>
+
+
+
+
+            <!-- Contact Form (Hidden by default) -->
+            <div class="contact-form" id="contactForm">
+                <h3 style="color: #333333; margin-bottom: 1.5rem; text-align: center;">Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">School/Organization</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your educational context, goals, or questions..." required></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="connect-btn">Send Message</button>
+                        <button type="button" class="connect-btn" onclick="toggleForm()" style="background: #6c757d; margin-left: 1rem;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="history-content">
+                <h2>Our Story</h2>
+                <p>Create Make Learn started as a unique week-long professional learning experience for educators designed by Lucie deLaBruere in 2012. It has since grown into a connected community of educators, makers, and artists passionate about hands-on minds-on learning through creating and making.</p>
+                <p>What began as a summer institute has evolved into comprehensive professional development opportunities, residencies, and a supportive community that continues to inspire educators to design amazing learning opportunities for their students.</p>
+                <p>You'll soon be connected to a wealth of resources, including fellow educators who will continue to inspire as you design amazing learning opportunities for your students.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-header">
+                <h2>Meet Our Team</h2>
+                <p>The passionate educators and makers behind Create Make Learn</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">L</div>
+                    <h3>Lucie deLaBruere</h3>
+                    <div class="title">Founder & Lead Educator</div>
+                    <p>Lucie is an ambassador for creativity and innovation in our schools. Her passion for learning through creating and making led to the design of the first Create Make Learn Summer Institute in 2012. She has built a community of creative educators who are equally committed to providing opportunities for more hands-on, minds-on learning for our students.</p>
+                    <p>Lucie (a 30+ years veteran teacher) is committed to advancing digital equity across several domains. Her TechSavvy Girls project has helped increase the confidence of young women and girls for over 20 years. She is committed to bringing opportunities for creating and making to rural communities. Lucie is a Google Certified Innovator, a Raspberry Pi Certified Educator and WeVideo ambassador.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">C</div>
+                    <h3>Craig Lyndes</h3>
+                    <div class="title">Technology Integration Specialist</div>
+                    <p>Craig has been finding ways to increase student and educator access to technology since the days when he launched the first student-run BBS in Vermont. He continues to empower educators as part of the Create Make Learn Team. Whether he is helping them build their own 3D printer or teaching them to solder, he is always in high demand due to his patient and kind approach to helping educators grow in ways that will empower students.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">C</div>
+                    <h3>Caty Wolfe</h3>
+                    <div class="title">Art & Technology Integration</div>
+                    <p>Caty started her education adventure 15+ years ago as a certified art teacher without a job. She became a special ed teacher at a technical center where she discovered she had technical aptitude and a fascination with fixing hardware and helping teachers integrate. She took on the duties of system administrator and then became the computer applications instructor.</p>
+                    <p>There is an interesting parallel between creative problem solving in the art world and technical troubleshooting. Thus began the adventure that has led her to be a PreTech Instructor at a Career and Technical Center with a focus on art and technology. She has integrated Design Thinking and Making into her curriculum and her students are always challenging her to push the boundaries. Her newest adventure has been to start an online store with Maker supplies and project ideas for teachers and kids!</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">S</div>
+                    <h3>Shannon Walters</h3>
+                    <div class="title">Library & Technology Integration</div>
+                    <p>Shannon Walters is passionate about using technology and the arts to create, collaborate, communicate and connect in new ways. She brings with her years of experience integrating technology as a Teacher Librarian and Technology Integration specialist at The Integrated Arts Academy in Burlington.</p>
+                    <p>Shannon is Co-Director for Governor's Institutes of Vermont's IT & Digital Media Institute @ Champlain College, a 10 day residential institute focused on game design, microcontrollers, cybersecurity, digital media creation and web design for high school students. Recipient of the Vermont Outstanding Teacher Award, she is Technology Concerns Chair for the Vermont School Library Association.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">D</div>
+                    <h3>Darcie Rankin</h3>
+                    <div class="title">Elementary STEAM Specialist</div>
+                    <p>Darcie started her professional career as an electrical engineer, but found her true passion was for working with students when she had a chance to go into schools to speak about science and engineering. She received her elementary teaching endorsement and Masters degree in Curriculum from St. Michael's College.</p>
+                    <p>She has been learning alongside elementary students for the last nine years and loves working with younger learners to engage them with hands on activities. She strives to infuse her educational practice with student voice and choice as she encourages students to take risks, be creative, collaborate, play and have fun! Darcie is also a code.org elementary level facilitator for Vermont and enjoys connecting coding and robotics with the elementary learning experience.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">+</div>
+                    <h3>Summer Institute Team</h3>
+                    <div class="title">Creative Educators & Makers</div>
+                    <p>Each summer the Create Make Learn Summer Institute brings together an amazing team of talented creative educators, makers, and artists to mentor us, inspire us, and help us grow our skills in creating, making, facilitating, and designing powerful learning opportunities through creating and making.</p>
+                    <p>Stay tuned for announcement of this year's creative team of inspiring educators and makers!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleForm() {
+            const form = document.getElementById('contactForm');
+            form.classList.toggle('active');
+            
+            if (form.classList.contains('active')) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+
+         function toggleFollowIt() {
+            const follow = document.getElementById('contactFollow');
+            follow.classList.toggle('active');
+            
+            if (follow.classList.contains('active')) {
+                follow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon. (This is a demo - implement actual form submission)');
+            toggleForm();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mailing list signup
+        document.querySelector('.connect-btn.blue').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Mailing list signup functionality to be implemented - could integrate with email service provider');
+        });
+
+        // Add scroll animation for team members
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all team members and connect cards for animation
+        document.querySelectorAll('.team-member, .connect-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+     <!-- This is the code that FETCHES the Follow It code from follow.html
+     -->
+
+     <!-- Contact FollowIt (Hidden by default) -->
+            <div class="contact-form" id="contactFollow">
+                <h3 style="color: #333333; margin-bottom: 1.5rem; text-align: center;">Subscribe to our Blog </h3>
+               
+
+
+    <div id="bottom_option"></div>
+    <script>
+      fetch('follow.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('bottom_option').innerHTML = data; });
+    </script>
+
+</div>  <!--  End Div for Contact FollowIt (Hidden by default) -->
+
+
+</body>
+</html>
