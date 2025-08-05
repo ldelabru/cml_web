@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Make Learn Residencies</title>
+   <link rel="stylesheet" href="styles.css">
+  <style>
+
+
+
+
+    /* Team cards */
+    .team-card {
+      border: 1px solid var(--muted);
+      padding: 1.5em;
+      text-align: center;
+    }
+    .team-card h3 {
+      margin-bottom: 0.25em;
+    }
+
+    /* Impact Stories */
+    .stories {
+      list-style: none;
+    }
+    .stories li {
+      margin-bottom: 1em;
+    }
+
+    /* Contact Form */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    form label {
+      display: block;
+      margin-top: 1em;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75em;
+      border: 1px solid var(--border);
+      margin-top: 0.5em;
+      font-size: 1em;
+    }
+    form button {
+      margin-top: 1em;
+      padding: 0.75em 1.5em;
+      border: none;
+      background: var(--color-create);
+      color: var(--bg);
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: var(--color-make);
+    }
+  </style>
+
+  
+</head>
+
+<body>
+
+  <header class="hero">
+    <!-- Hero image placeholder -->
+     <img src="MalletsBayResidency.JPG">
+    
+    <div class="overlay">
+      <h1>Residencies </h1>
+      
+    </div>
+<h1 style="color: #000;">Bring Create Make Learn to Your School</h1>
+<p style="color: #000;">Customized STEAM & maker residencies from single days to multi-week programs</p>
+  </header>
+
+ 
+ 
+
+  <main class="container">
+    <section>
+      <h2>How Our Residencies Work</h2>
+      <ul class="steps">
+        <li>
+          <svg><circle cx="20" cy="20" r="20"/></svg>
+          <div>
+            <h3>1. Initial Consultation</h3>
+            <p>We learn about your goals and needs to ensure alignment with your school vision.</p>
+          </div>
+        </li>
+        <li>
+          <svg><circle cx="20" cy="20" r="20"/></svg>
+          <div>
+            <h3>2. Co-Planning</h3>
+            <p>Together we design a custom residency from single-day workshops to multi-week runs.</p>
+          </div>
+        </li>
+        <li>
+          <svg><circle cx="20" cy="20" r="20"/></svg>
+          <div>
+            <h3>3. Implementation</h3>
+            <p>We bring maker tools and expertise directly to campus, co-teaching with faculty.</p>
+          </div>
+        </li>
+        <li>
+          <svg><circle cx="20" cy="20" r="20"/></svg>
+          <div>
+            <h3>4. Ongoing Support</h3>
+            <p>Continued guidance helps integrate STEAM & maker education into your curriculum.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <section>
+      <h2>Recent Residencies</h2>
+      <ul class="stories">
+        <li><strong>Cambridge Elementary:</strong> 4th graders designed multi-layered laser-cut maps of local covered bridges.</li>
+        <li><strong>The Warren School:</strong> Eight days of Lego circuits and coding for PreK–6 students.</li>
+        <li><strong>Newport City Elementary:</strong> Greek mythology models with laser cutters in 6th grade science & literacy.</li>
+        <li><strong>Moretown Elementary:</strong> Biomimicry-inspired maker projects across PreK–6.</li>
+        <li><strong>Bethel Elementary:</strong> Student-led podcasts reflecting on design thinking experiences.</li>
+      </ul>
+    </section>
+
+
+<!-- Institute Section -->
+    <section class="institute-section">
+        <div class="container">
+        
+
+            <div class="institute-features">
+                <div class="feature-card">
+                   
+                    <h3>Cambridge Elementary School </h3>
+                    <p> 4th graders designed multi-layered laser-cut maps of local covered bridges.</p>
+                </div>
+
+                <div class="feature-card">
+                   
+                    
+                    <h3>The Warren School</h3>
+                    <p>Eight days of Circuits and Coding Inspired by Literature </p>
+                </div>
+
+                <div class="feature-card">
+                    
+                    
+                    <h3>Newport City Elementary School</h3>
+                    <p>Greek mythology models with laser cutters in 6th grade science & literacy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+  
+
+     <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+           
+
+                
+                <div class="contact-info">
+                    <h2 style="color: #1E88E5; margin-bottom: 1rem;">Get Started Today</h2>
+                    <p style="margin-bottom: 0;">Reach out to discuss your needs and which PD format best supports your educational goals. Sign up for our mailing list to get notified of future PD events. </p>
+                </div>
+                
+                <button class="contact-btn">Contact Lucie</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section id="contact">
+      <h2>Ready to Get Started?</h2>
+      <form id="inquiryForm">
+        <label for="school">School Name</label>
+        <input type="text" id="school" name="school" placeholder="Your school or district" required />
+
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="First and last name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="goals">Residency Goals</label>
+        <textarea id="goals" name="goals" rows="4" placeholder="What do you hope to achieve?" required></textarea>
+
+        <button type="submit">Send Inquiry</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Visit us at <a href="https://www.createmakelearn.org">createmakelearn.org</a></p>
+    <p>Or email <a href="mailto:idelabruere@gmail.com">idelabruere@gmail.com</a> and <a href="mailto:techguidevt@gmail.com">techguidevt@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Simple form handling
+    document.getElementById("inquiryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thanks! We’ll be in touch within two business days.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
