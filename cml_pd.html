@@ -102,7 +102,8 @@
             navMenu.classList.toggle('active');
         });
         
-        // Highlight active link. This will take all the items with class .nav-link and add the 'active' formatting if the link associated with it is 'this page' 
+        // Highlight active link. This will take all the items with class .nav-link and add the 'active' formatting if the link associated with it is 'this page'.  I'm still having trouble getting this to work correctly since the code for the navbbar is being 'fetched' into this page and built on load.  Will need to do more troublehooting
+
         document.querySelectorAll('.nav-link').forEach(link => {
             if (link.getAttribute('href') === 'cml_pd.html') {
                 link.classList.add('active');

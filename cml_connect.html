@@ -3,277 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Development | Create Make Learn</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-
-
-
-<body>
-
-  <!-- This is the code that FETCHES the Navbar from navbar.html
-     -->
-
-    <div id="navbar"></div>
-    <script>
-      fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => { document.getElementById('navbar').innerHTML = data; });
-    </script>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- The following section includes style for the FOLLOW BLOG and was copied here from the FOLLOW IT website by Lucie -->
+    <title>Let's Connect - Create Make Learn</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            margin-top: 30px !important;
-            padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
-            max-width: none !important;
-            border-radius: 6px !important;
-            box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #FFFFFF;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
-            box-sizing: border-box !important;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
-            width: 100% !important;
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
-            margin-top: 20px !important;
-            width: 100% !important;
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333333;
+            text-decoration: none;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
-            width: 100% !important;
-            height: 40px !important;
-            border-radius: 6px !important;
-            border: 2px solid #e9e8e8 !important;
-            background-color: #fff;
-            outline: none !important;
-            color: #000000 !important;
-            font-family: "Montserrat" !important;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 20px;
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B35;
+        }
+
+        /* Hero/Header Section */
+        .hero {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
+            color: white;
+            padding: 8rem 0 4rem;
             text-align: center;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
-            color: #000000 !important;
-            opacity: 1 !important;
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
-            color: #000000 !important;
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s both;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
-            color: #000000 !important;
+
+        /* History Section */
+        .history-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
-            margin-top: 10px !important;
-            width: 100% !important;
+
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
-            width: auto;
-            min-width: 160px; /* Optional: ensures a nice minimum width */
-            padding: 0.75rem 2rem;
+
+        .history-section h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 2rem;
+        }
+
+        .history-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Connect Options Section */
+        .connect-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .connect-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .connect-header h2 {
+            font-size: 2.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .connect-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .connect-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid;
+        }
+
+        .connect-card:nth-child(1) {
+            border-top-color: #FF6B35;
+        }
+
+        .connect-card:nth-child(2) {
+            border-top-color: #F7931E;
+        }
+
+        .connect-card:nth-child(3) {
+            border-top-color: #1E88E5;
+        }
+
+         .connect-card:nth-child(4) {
+            border-top-color: #1E88E5;
+        }
+
+        .connect-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .connect-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .connect-card h3 {
+            font-size: 1.5rem;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        .connect-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .connect-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 0.8rem 2rem;
             border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
+            border-radius: 50px;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            height: auto;
-            line-height: normal;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
             display: inline-block;
         }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
-            cursor: pointer !important;
-        }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
-            color: #231f20 !important;
-            font-family: "Montserrat" !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-            line-height: 25px !important;
-            text-align: center !important;
-            text-decoration: none !important;
-            display: flex !important;
-            width: 100% !important;
-            justify-content: center !important;
-            align-items: center !important;
-            margin-top: 10px !important;
-        }
-        .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
-            margin-left: 10px !important;
-            height: 1.13em !important;
-            max-height: 1.13em !important;
+
+        .connect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
         }
 
-        .contact-flex {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .contact-flex > * {
-            flex: 1 1 300px;
-            max-width: 400px;
+        .connect-btn.blue {
+            background: linear-gradient(135deg, #1E88E5 0%, #64B5F6 100%);
         }
 
-        .logo-section ul,
-        .logo-section ul li {
-            color: #000;
+        .connect-btn.blue:hover {
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.3);
         }
 
-        .logo-section p {
-            color: #000;
+        /* Contact Form */
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            display: none;
         }
 
-        .logo-section ul {
-            list-style: disc;
-            margin-left: 2em;
-            padding-left: 0;
+        .contact-form.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
         }
 
-        .followit--follow-form-container {
-            background: #f3f3f3;
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-            margin: 1.5rem 0;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
- 
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
 
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
 
+            .hero h1 {
+                font-size: 2.2rem;
+            }
 
-    <header>
-        <div class="header-bg"></div>
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .connect-options {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation 
+    <nav>
         <div class="container">
-            <div class="logo-section">
-                <img src="CML Logo large.png" alt="Create Make Learn Logo" class="main-logo-img">
-                <h1 class="logo-text">Contact Us</h1>
-                <p class="tagline">We'd love to connect! </p>
-                <ul>
-                    <li>Fill out the form below Reach out with your questions, ideas, or to schedule a residency or workshop.</li>
-                    <li>Email Lucie directly at ldelabruere@gmail.com</li>
-                    <li>Subscribe to the blog to get email notice of new updates</li>
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">CREATE • MAKE • LEARN</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="professional-development.html">Professional Development</a></li>
+                    <li><a href="#team">Meet the Team</a></li>
+                    <li><a href="#connect">Connect</a></li>
                 </ul>
-                <p>I look forward to hearing from you. </p>
             </div>
         </div>
-    </header>
+    </nav>
+    -->
 
-    
-    <section class="services">
+    <!-- Hero Section  -->
+    <section class="hero">
         <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Whether you have questions about a blog post, want to collaborate on a residency, or are interested in a workshop or customized PD, don't hesitate to reach out.</p>
-            <form>
-                <div style="margin-bottom:1rem;">
-                    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:0.75rem;">
-                </div>
-                <div style="margin-bottom:1rem;">
-                    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:0.75rem;">
-                </div>
-                <div style="margin-bottom:1rem;">
-                    <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:0.75rem;"></textarea>
-                </div>
-                <button type="submit" class="cta-btn">Send Message</button>
-                <p style="margin-top:2rem;opacity:0.8;">
-                   
-                   <h2> Or email Lucie directly at <a href="mailto:ldelabruere@gmail.com" style="color:#f7931e;">info@createmakelearn.org</a> </h2>
-
-                   <h2> Get New Blog Post by Email  
-                    
-                   </h2>
-
-
-                </p>
-            </form>
-            <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
-                <form data-v-8541cdc9="" action="https://api.follow.it/subscription-form/T0VPMlJ5cjRXaWFUYitZVFFHTGJGeHdGak9iUTdBaGJRNHFaa21CeGZjcGcwWXEzRDN2QzA5UC9nZWZ0aXZpSEFMbFlHb1BGSmp5bU41OGhCd3NGSUVNaTR5YmFSMC81NHhYM1krb3lNQS9rSlE1Ly9HV2NCQVZnKy92SEJ4Ukp8aEFjZzl0b1d5eFlzT3JmUzNoUXVFNFp2andNRU8yNEczTGJpT20zUDVwOD0=/8" method="post">
-                    <div data-v-8541cdc9="" class="form-preview" style="background-color: rgb(255, 255, 255); border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204); position: relative;">
-                        <div data-v-8541cdc9="" class="preview-heading">
-                            <h2 data-v-8541cdc9="" style="font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center; text-transform: none !important;">
-                                Sign up for email delivery of our blog using Follow.It subscription service</h2>
-                        </div>
-                        <div data-v-8541cdc9="" class="preview-input-field">
-                            <input data-v-8541cdc9="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" style="font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255); text-transform: none !important;">
-                        </div>
-                        <div data-v-8541cdc9="" class="preview-submit-button">
-                            <button data-v-8541cdc9="" type="submit">Subscribe</button>
-                        </div>
-                    </div>
-                </form>
-                <a href="https://follow.it" class="powered-by-line">Powered by <img src="https://follow.it/images/colored-logo.svg" alt="follow.it" height="17px"/></a>
-            </div>
+            <h1>Let's Connect</h1>
+            <p class="tagline">Choose the best way to start your Create Make Learn journey</p>
         </div>
     </section>
-    <footer>
+   
+
+    <!-- Connect Options Section -->
+    <section class="connect-section" id="connect">
         <div class="container">
-            <p>&copy; 2025 Create Make Learn. Empowering learning through making and creating.</p>
-        </div>
-    </footer>
+            <!-- 
+            <div class="connect-header">
+                <h2>Ready to Connect?</h2>
+                <p>Choose the best way to start your Create Make Learn journey</p>
+            </div>
+            -->
+
+            <div class="connect-options">
+                <!-- I used AI to come up with options for icons that could be drawn out as an SVG. We learned abit about this in our last two classes, so I knew they existed but would not have been able to design them myself-->
+                <div class="connect-card">
+                        <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <rect x="15" y="25" width="70" height="50" fill="#FF6B35" opacity="0.2" rx="5"/>
+                            <path d="M15 35 L50 55 L85 35" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                            <rect x="15" y="25" width="70" height="50" fill="none" stroke="#FF6B35" stroke-width="2" rx="5"/>
+                        </svg>
+                        </div> <!-- Connect Icon Div   -->
+                    <h3>Email Directly</h3>
+                    <p>Have a specific question or want to discuss professional development opportunities? Send Lucie a direct email and she'll get back to you personally.</p>
+                    <a href="mailto:lucie@createmakelearn.org" class="connect-btn">Send Email</a>
+                </div><!-- Connect Card Div Email  -->
+
+                <div class="connect-card">
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" fill="#F7931E" opacity="0.2" rx="8"/>
+                            <rect x="30" y="35" width="40" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="45" width="30" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="55" width="35" height="3" fill="#F7931E" rx="1"/>
+                            <rect x="30" y="65" width="25" height="3" fill="#F7931E" rx="1"/>
+                            <circle cx="75" cy="25" r="3" fill="#F7931E"/>
+                        </svg>
+                    </div>
+                    <h3>Send a Message</h3>
+                    <p>Share your thoughts, ideas, or questions with our team. Tell us about your educational context and how we might support your goals.</p>
+                    <button class="connect-btn" onclick="toggleForm()">Send Message</button>
+
+
+                </div> <!-- Send a Message  Connect Card Div End   -->
+
+                <div class="connect-card">
+                        <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <circle cx="35" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="65" cy="35" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="50" cy="65" r="12" fill="#1E88E5" opacity="0.3"/>
+                            <circle cx="35" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="65" cy="35" r="6" fill="#1E88E5"/>
+                            <circle cx="50" cy="65" r="6" fill="#1E88E5"/>
+                            <path d="M41 41 L59 41" stroke="#1E88E5" stroke-width="2"/>
+                            <path d="M44 47 L56 59" stroke="#1E88E5" stroke-width="2"/>
+                        </svg>
+                        </div>
+                    <h3>Join the Mailing List</h3>
+                    <p>Stay connected with occasional updates about events, grants, inspiration from our community, and other helpful resources for educators.</p>
+                  
+                     <button class="connect-btn" onclick="window.location.href='mailing_list.html'">Join Mailing List</button>
+                </div> <!-- Connect Card Mailing List End Div  -->
+            
+
+                <div class="connect-card">
+                   
+
+
+                    <div class="connect-icon">
+                        <svg width="60" height="60" viewBox="0 0 100 100">
+                            <!-- Browser window frame -->
+                            <rect x="15" y="25" width="70" height="50" fill="#F7931E" opacity="0.2" rx="5"></rect>
+                            <rect x="15" y="25" width="70" height="10" fill="#F7931E" opacity="0.4" rx="5"></rect>
+                            <!-- Browser dots -->
+                            <circle cx="22" cy="30" r="2" fill="#F7931E"></circle>
+                            <circle cx="30" cy="30" r="2" fill="#F7931E"></circle>
+                            <circle cx="38" cy="30" r="2" fill="#F7931E"></circle>
+                            <!-- Blog content lines -->
+                            <rect x="25" y="45" width="35" height="3" fill="#F7931E" rx="1"></rect>
+                            <rect x="25" y="52" width="45" height="2" fill="#F7931E" rx="1"></rect>
+                            <rect x="25" y="57" width="40" height="2" fill="#F7931E" rx="1"></rect>
+                            <rect x="25" y="62" width="30" height="2" fill="#F7931E" rx="1"></rect>
+                            <!-- RSS/Blog icon -->
+                            <circle cx="70" cy="50" r="8" fill="#FF6B35" opacity="0.3"></circle>
+                            <circle cx="67" cy="56" r="2" fill="#FF6B35"></circle>
+                            <path d="M64 48 Q70 48 70 54" stroke="#FF6B35" stroke-width="2" fill="none"></path>
+                            <path d="M61 45 Q73 45 73 57" stroke="#FF6B35" stroke-width="2" fill="none"></path>
+                        </svg>
+                        </div> <!-- End Connect Icon Div   -->
+                    <h3>Subscribe to Blog</h3>
+                    <p>You will receive a vertification via "FOLLOW-IT". Once you confirm with Follow-It, our new blog posts will be sent to your email when they drop. </p>
+                    
+                     
+                       <button class="connect-btn" onclick="window.location.href='follow.html'">Subscribe to Blog</button>
+                     
+
+                 </div> <!-- End Connect Card Blog Subsribe Div   -->
+          <!--  duplicateEnds container end of section
+            </div> 
+            </section>
+          -->
+    
+
+<!--This is the next stuff-->
+
+
+
+<!--This is  end of the next stuff-->
+
+
+
+                
+
+
+           
+
+
+
+
+            <!-- Contact Form  for Send  Message (Hidden by default) -->
+            <div class="contact-form" id="contactForm">
+                <h3 style="color: #333333; margin-bottom: 1.5rem; text-align: center;">Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">School/Organization</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your educational context, goals, or questions..." required></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="connect-btn">Send a Message Demo only</button>
+
+
+                        <button type="button" class="connect-btn" onclick="toggleForm()" style="background: #6c757d; margin-left: 1rem;">Cancel</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div> <!-- End Div before Hero Section  -->
+    </section> <!--  End Hero Section  -->
+
     <script>
-        // Mobile navigation toggle
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-        // Highlight active link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === 'cml_connect.html') {
-                link.classList.add('active');
+        function toggleForm() {
+            const form = document.getElementById('contactForm');
+            form.classList.toggle('active');
+            
+            if (form.classList.contains('active')) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
+        }
+
+
+       
+
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon. (This is a demo - it does not implement actual form submission)');
+            toggleForm();
         });
+
+
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        
+
+       
+
+       
+
     </script>
 
-    <!-- This next section was copied from the Follow It website -->
-    <!--
-    <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
-        <form data-v-8541cdc9="" action="https://api.follow.it/subscription-form/T0VPMlJ5cjRXaWFUYitZVFFHTGJGeHdGak9iUTdBaGJRNHFaa21CeGZjcGcwWXEzRDN2QzA5UC9nZWZ0aXZpSEFMbFlHb1BGSmp5bU41OGhCd3NGSUVNaTR5YmFSMC81NHhYM1krb3lNQS9rSlE1Ly9HV2NCQVZnKy92SEJ4Ukp8aEFjZzl0b1d5eFlzT3JmUzNoUXVFNFp2andNRU8yNEczTGJpT20zUDVwOD0=/8" method="post">
-            <div data-v-8541cdc9="" class="form-preview" style="background-color: rgb(255, 255, 255); border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204); position: relative;">
-                <div data-v-8541cdc9="" class="preview-heading">
-                    <h5 data-v-8541cdc9="" style="font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center; text-transform: none !important;">Get new blog posts by email:</h5>
-                </div>
-                <div data-v-8541cdc9="" class="preview-input-field">
-                    <input data-v-8541cdc9="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" style="font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255); text-transform: none !important;">
-                </div>
-                <div data-v-8541cdc9="" class="preview-submit-button">
-                    <button data-v-8541cdc9="" type="submit" style="font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0); text-transform: none !important;">Subscribe</button>
-                </div>
-            </div>
-        </form>
-        <a href="https://follow.it" class="powered-by-line">Powered by <img src="https://follow.it/images/colored-logo.svg" alt="follow.it" height="17px"/></a>
-    </div>
-    -->
+   
+           
+
+
+    
+
 </body>
 </html>

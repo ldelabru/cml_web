@@ -8,10 +8,9 @@
       <link rel="stylesheet" href="styles.css">
 
     <style>
+
+        /*These are styles that were specific to the format of this page */
      
-
-
-       
         /* Team Section */
         .team-section {
             padding: 5rem 0;
@@ -45,28 +44,16 @@
         }
 
         .team-member img {
-  display: block;
-  margin: 0 auto 1.5rem auto;
-} /* Center the  team image and add space below it */
+            display: block;
+            margin: 0 auto 1.5rem auto;
+        } /* Center the  team image and add space below it */
 
         .team-member:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .team-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            font-weight: bold;
-        }
+    
 
         .team-member h3 {
             font-size: 1.5rem;
@@ -86,7 +73,8 @@
             text-align: left;
         }
 
-        /* Animations */
+        /* Animation Effect that I learned about from AI
+         */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -100,10 +88,8 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
 
+            
             .gradient_hero h1 {
                 font-size: 2.2rem;
             }
@@ -112,13 +98,14 @@
                 font-size: 1.1rem;
             }
 
-            
 
             .team-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
+
+
 </head>
 <body>
 

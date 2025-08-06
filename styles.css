@@ -220,6 +220,38 @@ width: 150px;
     object-fit: cover;
 }
 
+.hero-flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.left-wrap-img {
+    float: left;
+    width: 25%;           /* or a fixed width like 220px */
+    max-width: 300px;
+    min-width: 120px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.small-hero-img {
+    width: 25%;
+    max-width: 300px; /* Optional: set a max width for very large screens */
+    min-width: 120px; /* Optional: set a min width for very small screens */
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.hero-content {
+    flex: 1;
+}
+
 /* properties for the button used on the page */
     .btn {
       display: inline-block;
