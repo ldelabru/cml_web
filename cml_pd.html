@@ -8,8 +8,12 @@
 </head>
 <body>
 
-  <!-- This is the code that FETCHES the Navbar from navbar.html
-     -->
+      <!-- Navbar will be built dynamically from JSON -->
+    <div id="navbar"></div>
+
+
+  <!-- This  is the  old code that used before I tried Json. Leaving it here in case I need to go back and FETCH the Navbar from navbar.html
+    
 
     <div id="navbar"></div>
     <script>
@@ -18,6 +22,8 @@
         .then(data => { document.getElementById('navbar').innerHTML = data; });
     </script>
 
+
+     -->
 
     
 
@@ -94,21 +100,124 @@
     </footer>
 
 
-    <script>
-        // Mobile navigation toggle will change the way it works if I'm lookint at it on a mobile device 
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Highlight active link. This will take all the items with class .nav-link and add the 'active' formatting if the link associated with it is 'this page'.  I'm still having trouble getting this to work correctly since the code for the navbbar is being 'fetched' into this page and built on load.  Will need to do more troublehooting
+    
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === 'cml_pd.html') {
-                link.classList.add('active');
+<!-- Below is the script needed to loead my Navbar using Json  I would not have been able to create it by myself, so I used AI to help create it and I also reviewed each line to make sure I understood what was happening at each step along the way -->
+    <script>
+        // This Function will load navbar info from JSON data
+        async function loadNavbar() { //async functions let other code run while waiting for a response
+            try {
+                const response = await fetch('navbar-data.json'); //get the data from the JSON file
+                const navData = await response.json(); // parse the JSON data into a file named navData 
+                buildNavbar(navData); //pass the info in the navData file to the buildNavbar function to create the HTML for the navbar
+                
+                // After navbar is built, highlight the active link
+                highlightActiveLink(); // highlight the active link based on the current page
+                
+                // Initialize mobile menu after navbar is built
+                initializeMobileMenu(); // set up the mobile menu functionality in case the file is viewed on a mobile device
+                
+            } catch (error) {// if there is an error loading the JSON file, it will run this code
+                // Log the error to the console
+                console.error('Error loading navbar data:', error);
+                // Fallback: load the old navbar.html if JSON fails
+                loadFallbackNavbar();
             }
-        });
-    </script>
+        }
+
+        // Function to build navbar HTML from JSON data
+        function buildNavbar(navData) {
+            const navbar = document.getElementById('navbar');//find the div with the id of navbar
+            
+            // Create  a variable called navbarHTML to hold the navbar HTML structure
+            let navbarHTML = `
+                <nav class="navbar">
+                    <div class="nav-container">
+                        <div class="nav-logo">
+                            <img src="${navData.logo.image}" alt="${navData.logo.alt}" class="nav-logo-img">
+                        </div>
+                        <ul class="nav-menu" id="navMenu"> 
+            `; //this is the start of the navbar HTML structure which includes the image for the logo and the data for the alt tag for the logo image, then start the unordered list for the menu items
+            
+            // Add navigation items from JSON
+            navData.navItems.forEach(item => { //for each item in the navItems array in the JSON file, it will create a list item with a link
+                const targetAttr = item.isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''; //if the item is an external link, it will add the target and rel attributes to the link
+                navbarHTML += `<li><a href="${item.href}"  class="nav-link" data-page="${item.id}" ${targetAttr}>${item.text}</a></li>`; //this adds the list item to the navbarHTML variable with the href, class, data-page attribute, and text from the JSON file (the datapage attribute is used to know if this is the current page so it can be highlighted in the navbar)
+
+            });
+            
+            // Close the navbar HTML structure
+            navbarHTML += `
+                        </ul>
+                        <button class="nav-toggle" id="navToggle">☰</button>
+                    </div>
+                </nav> 
+            `; //this closes the unordered list and the navbar HTML structure, and adds a button for the mobile menu toggle
+            
+            navbar.innerHTML = navbarHTML;
+        } //finally this sets the inner HTML of the navbar div to the navbarHTML variable which contains the complete HTML structure for the navbar
+
+        // Function to highlight the active navigation link
+        function highlightActiveLink() {
+            const currentPage = getCurrentPageId(); //calls the function that will get the current page ID based on the filename
+            const navLinks = document.querySelectorAll('.nav-link'); //finds all the links in the navbar with the class of nav-link and stores them in the navLinks variable
+            
+            // Loop through all nav links to remove active class and add to the current page link
+            navLinks.forEach(link => {
+                link.classList.remove('active'); //remove the active class from all links first to clear any previous highlighting
+                
+                 // Add active class to the link that matches the current page
+                if (link.getAttribute('data-page') === currentPage) {
+                    link.classList.add('active'); //if the data-page attribute of the link matches the current page ID, it will add the active class to the link to highlight it
+                }
+            });
+        }
+
+        // Function to determine current page ID based on filename
+        function getCurrentPageId() {
+            const currentPath = window.location.pathname;
+            const currentFile = currentPath.split('/').pop() || 'index.html'; //get the current filename, default to index.html if root - this handles cases where the URL ends with a slash and the index.html is implied
+            
+            // Map filenames to page IDs
+            const pageMap = {
+                'index.html': 'home',
+                'cml_pd.html': 'pd',
+                'cml_residencies.html': 'residencies', 
+                'cml_connect.html': 'connect',
+                'About_Us.html': 'about'
+            }; //this code maps filenames to page IDs that correspond to the data-page attributes that are included in the navbar links
+            
+            return pageMap[currentFile] || null; //return the page ID that matches the current filename, or null if it is not found
+        }
+
+        // Function to initialize mobile menu functionality
+        function initializeMobileMenu() {
+            const navToggle = document.getElementById('navToggle'); //find the button with the id of navToggle
+            const navMenu = document.getElementById('navMenu'); //find the unordered list with the id of navMenu
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active'); //when the button is clicked, it will toggle the active class on the navMenu to show or hide the menu
+                });//this code checks if the navToggle and navMenu elements exist before adding the event listener to avoid errors
+            }
+        }
+
+        // Fallback function if JSON loading fails. This is the way I originally set up the website before switching to JSON.
+        function loadFallbackNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => { 
+                    document.getElementById('navbar').innerHTML = data; 
+                    highlightActiveLink();
+                    initializeMobileMenu();
+                })
+                .catch(error => console.error('Fallback navbar loading failed:', error));
+        }
+
+        // Load navbar when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNavbar(); //call the loadNavbar function when the DOM content is loaded
+        }); //this ensures that the navbar is loaded as soon as the HTML is fully loaded and parsed
+    </script>  
 </body>
 </html>
