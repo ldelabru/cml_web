@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's Connect - Create Make Learn</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+   </style>
+
+   
     <style>
         * {
             margin: 0;
@@ -24,48 +34,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333333;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #FF6B35;
-        }
-
+       
         /* Hero/Header Section */
         .hero {
             background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #1E88E5 100%);
@@ -295,21 +264,19 @@
     </style>
 </head>
 <body>
-    <!-- Navigation 
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">CREATE • MAKE • LEARN</a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="professional-development.html">Professional Development</a></li>
-                    <li><a href="#team">Meet the Team</a></li>
-                    <li><a href="#connect">Connect</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    -->
+
+  <!-- This is the code that FETCHES the Navbar from navbar.html
+     -->
+
+    <div id="navbar"></div>
+    <script>
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('navbar').innerHTML = data; });
+    </script>
+
+
+    
 
     <!-- Hero Section  -->
     <section class="hero">
