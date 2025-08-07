@@ -1,0 +1,44 @@
+{
+    "logo": {
+        "image": "cropped-CML_logo-small.webp",
+        "alt": "Create Make Learn"
+    },
+    "navItems": [
+        {
+            "id": "home",
+            "text": "Home",
+            "href": "index.html",
+            "isExternal": false
+        },
+        {
+            "id": "blog", 
+            "text": "Blog",
+            "href": "https://createmakelearn.blogspot.com/",
+            "isExternal": true
+        },
+        {
+            "id": "residencies",
+            "text": "Residencies", 
+            "href": "cml_residencies.html",
+            "isExternal": false
+        },
+        {
+            "id": "pd",
+            "text": "Workshops & PD",
+            "href": "cml_pd.html", 
+            "isExternal": false
+        },
+        {
+            "id": "connect",
+            "text": "Let's Connect",
+            "href": "cml_connect.html",
+            "isExternal": false
+        },
+        {
+            "id": "about",
+            "text": "About Us", 
+            "href": "About_Us.html",
+            "isExternal": false
+        }
+    ]
+}
